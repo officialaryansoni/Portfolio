@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARYAN | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    header {
+      background-color: #000;
+      color: #f00;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #f0c040;
+      text-decoration: none;
+      margin: 10px;
+    }
+
+    .hero-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: url("assets/images/banner.jpg") no-repeat center center/cover;
+      padding: 60px 10%;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      flex: 1;
+      color: #fff;
+    }
+
+    .hero-left h1 {
+      color: #f0c040;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .hero-left h2 {
+      font-size: 40px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .hero-left p {
+      font-size: 16px;
+      margin: 15px 0;
+      max-width: 500px;
+    }
+
+    .hero-right {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-right img {
+      max-width: 300px;
+      border-radius: 20px;
+      border: 4px solid #f00;
+    }
+
+    .project-card {
+      background: #222;
+      margin: 20px 0;
+      padding: 20px;
+      border-left: 5px solid #f00;
+      border-radius: 10px;
+    }
+
+    .project-img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-bar {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    form h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f0c040;
+    }
+
+    input, textarea {
+      margin-bottom: 15px;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid #f00;
+    }
+
+    button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c00;
+    }
+
+    .download-btn {
+      background: #f00;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #000;
+      padding: 20px;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .hero-section {
+  background: url("assets/images/banner.jpg") no-repeat center center/cover;
+  padding: 80px 10%;
+  color: #fff;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-left h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero-left h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #f0c040;
+  margin-bottom: 20px;
+}
+
+.hero-left p {
+  font-size: 16px;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #f00;
+}
+
+.cta-buttons {
+  margin-top: 25px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #f00;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c70000;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #f0c040;
+  border: 2px solid #f0c040;
+}
+
+.btn-secondary:hover {
+  background-color: #f0c040;
+  color: #111;
+}
+
+.hero-right {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-img {
+  width: 300px;
+  border-radius: 50%;
+  border: 4px solid #f00;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+.about-section {
+  padding: 60px 10%;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-left {
+  flex: 1;
+  text-align: center;
+}
+
+.about-img {
+  width: 250px;
+  border-radius: 15px;
+  border: 4px solid #f00;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.about-right {
+  flex: 2;
+}
+
+.about-right h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #f0c040;
+}
+
+.about-right p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  display: inline-block;
+  background-color: #f00;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.skills-section {
+  padding: 60px 10%;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #f0c040;
+  margin-bottom: 30px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.skills-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.skills-column h3 {
+  margin-bottom: 15px;
+  color: #f00;
+}
+
+.skill {
+  margin-bottom: 12px;
+}
+
+.skill label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #f00;
+  border-radius: 5px;
+}
+
+.tool-tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tool-tags li {
+  background-color: #333;
+  border: 1px solid #f00;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.projects-section {
+  padding: 60px 10%;
+  background-color: #111;
+}
+
+.projects-section h2 {
+  text-align: center;
+  color: #f0c040;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #222;
+  border-left: 5px solid #f00;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 0 10px #000;
+}
+
+.project-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.project-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+form {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  color: #ddd;
+}
+
+.contact-info a {
+  color: #f0c040;
+  text-decoration: none;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 10px;
+  color: #f0c040;
+}
+
+.resume-container {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.resume-preview {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin-top: 20px;
+  border: 2px solid #f00;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <center><section id="hero" class="hero-section" data-aos="fade-up">
+  <div class="hero-content">
+    <div class="hero-left">
+      <h1>Hello, I'm <span class="highlight">Aryan Soni</span></h1>
+      <h2>Web Developer | AI Enthusiast</h2>
+      <p>Building modern web apps and AI solutions to solve real-world problems.</p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn-primary">🚀 View My Work</a>
+
+      </div>
+    </div>
+    
+  </div>
+</section> </center>
+
+<section id="about" class="about-section" data-aos="fade-up">
+  <div class="about-content">
+    <div class="about-left">
+      <img src="picture\picture.JPG" alt="Aryan Soni Profile" class="about-img" />
+    </div>
+    <div class="about-right">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m <strong>Aryan Soni</strong>, a B.Tech student in <strong>Artificial Intelligence & Machine Learning (AIML)</strong> at Maharshi Dayanand University (2022–2026). I’m deeply passionate about <strong>web development</strong> and creating smart, scalable digital solutions. I enjoy turning complex problems into clean, user-friendly web applications using technologies like <strong>React.js</strong>, <strong>Node.js</strong>, <strong>JavaScript</strong>, and modern databases.
+        <br><br>
+        My goal is to become a full-stack developer who contributes to innovative tech projects that make a real impact.
+      </p>
+      <a href="Cv_new.pdf" class="btn-primary" download>📄 Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-section" data-aos="fade-up">
+  <h2>Skills</h2>
+
+  <div class="skills-container">
+    <!-- Technical Skills -->
+    <div class="skills-column">
+      <h3>💻 Technical Skills</h3>
+      <div class="skill">
+        <label>HTML</label>
+        <progress value="100" max="100"></progress>
+      </div>
+      <div class="skill">
+        <label>CSS</label>
+        <progress value="95" max="100"></progress>
+      </div>
+      <div class="skill">
+        <label>JavaScript</label>
+        <progress value="80" max="100"></progress>
+      </div>
+      <div class="skill">
+        <label>React.js</label>
+        <progress value="75" max="100"></progress>
+      </div>
+      <div class="skill">
+        <label>Python</label>
+        <progress value="85" max="100"></progress>
+      </div>
+       <div class="skill">
+        <label>C++</label>
+        <progress value="60" max="100"></progress>
+      </div>
+       <div class="skill">
+        <label>DBMS</label>
+        <progress value="60" max="100"></progress>
+      </div>
+       <div class="skill">
+        <label>R Language</label>
+        <progress value="70" max="100"></progress>
+      </div>
+       <div class="skill">
+        <label>DSA</label>
+        <progress value="60" max="100"></progress>
+      </div>
+      <div class="skill">
+        <label>SQL</label>
+        <progress value="70" max="100"></progress>
+      </div>
+      <div class="skill">
+        <label>AI/ML Tools</label>
+        <progress value="60" max="100"></progress>
+      </div>
+    </div>
+
+    <!-- Tools & Software -->
+    <div class="skills-column">
+      <h3>🛠️ Tools & Platforms</h3>
+      <ul class="tool-tags">
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>VS Code</li>
+        <li>Figma</li>
+        <li>Postman</li>
+        <li>Netlify</li>
+        <li>MongoDB</li>
+        <li>MySQL</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <section id="projects" class="projects-section" data-aos="fade-up">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <img src="picture\Screenshot 2025-06-23 123022.png" alt="FilmJet Screenshot" class="project-img" />
+      <h3>🎬 FilmJet</h3>
+      <p>A full-stack movie search and streaming platform with personalized recommendations.</p>
+      <p><strong>Tech:</strong> React, Node.js, MongoDB, TMDB API</p>
+      <div class="project-links">
+       <center> <a href="https://github.com/officialaryansoni/FilmJet" target="_blank" class="download-btn">💻 GitHub</a></center>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <img src="picture\Screenshot 2025-06-23 123504.png" alt="Todo App" class="project-img" />
+      <h3>📝 Todo App</h3>
+      <p>A responsive to-do list app with local storage support and smooth UI.</p>
+      <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+      <div class="project-links">
+       <center> <a href="https://github.com/yourgithub/todo-app" target="_blank" class="download-btn">💻 GitHub</a></center>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <img src="picture\Screenshot 2025-06-23 122741.png" alt="Portfolio Website" class="project-img" />
+      <h3>🌐 Personal Portfolio</h3>
+      <p>Modern portfolio website to showcase projects, skills and contact info.</p>
+      <p><strong>Tech:</strong> HTML, CSS, JavaScript, AOS</p>
+      <div class="project-links">
+       <center> <a href="https://github.com/yourgithub/portfolio" target="_blank" class="download-btn">💻 GitHub</a> </center>
+      </div>
+    </div>
+
+    <!-- Add more projects as needed -->
+
+  </div>
+</section>
+
+
+<section id="Contact" class="skills-section" data-aos="fade-up">
+  <h2>📞 Contact Me</h2>
+  <div class="contact-container">
+
+    <!-- Contact Form -->
+    <form id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Contact Info & Socials -->
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p><strong>Email:</strong> <a href="mailto:your.email@example.com">personalaryansoni@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91-7015218128</p>
+      <p><strong>Location:</strong> Mandi Adampur , Hisar , Haryana , India</p>
+      <div class="social-links">
+        <a href="https://github.com/officialaryansoni" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/aryan-soni-557b53214/" target="_blank">LinkedIn</a>
+        <!-- Add more links if needed -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume" class="skills-section" data-aos="fade-up">
+  <h2>📄 My Resume</h2>
+  <div class="resume-container">
+    <a href="Cv_new.pdf" download class="download-btn">⬇️ Download Resume</a>
+    <iframe src="Cv_new.pdf" class="resume-preview" frameborder="0"></iframe>
+  </div>
+</section>
+
+<!-- Add this before body ends -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<footer>
+    <p>&copy; 2025 Aryan Soni. All rights reserved. |
+      <span style="color: #f00; border: 2px dashed #f00; padding: 4px 8px; border-radius: 6px;">
+        No Copyrights
+      </span>
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const form = document.getElementById("contactForm");
+    if (form) {
+      form.addEventListener("submit", function () {
+        alert("Message sent successfully!");
+      });
+    }
+    fetch('https://api.countapi.xyz/hit/yourdomain.com/visits')
+      .then(res => res.json())
+      .then(data => {
+        const counter = document.getElementById('counter');
+        if (counter) counter.textContent = data.value;
+      });
+  </script>
+</body>
+</html>
